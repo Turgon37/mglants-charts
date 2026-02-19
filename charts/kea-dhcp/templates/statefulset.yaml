@@ -41,6 +41,8 @@ spec:
       {{- end }}
       initContainers:
       - name: init-kea
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 10 }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         command:
         - sh
