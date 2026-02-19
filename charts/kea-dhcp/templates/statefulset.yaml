@@ -141,6 +141,8 @@ spec:
           volumeMounts:
           - name: data
             mountPath: /data
+          - name: kea-run
+            mountPath: /run/kea
           - name: kea-config
             mountPath: /config/kea
         {{ if gt .Values.replicaCount 1.0 }}
@@ -162,6 +164,8 @@ spec:
         {{- end }}
       volumes:
       - name: kea-config
+        emptyDir: {}
+      - name: kea-run
         emptyDir: {}
       - name: kea-configmap
         configMap:
