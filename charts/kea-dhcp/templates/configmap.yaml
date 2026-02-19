@@ -14,7 +14,8 @@ data:
             },
             "interfaces-config": {
                 "interfaces": [ "INTERFACE" ],
-                "dhcp-socket-type": "raw"
+                "service-sockets-require-all": true,
+                "dhcp-socket-type": "{{ .Values.kea.dhcp4.dhcpSocketType }}"
             },
             "valid-lifetime": {{ .Values.kea.dhcp4.validlifetime }},
             "renew-timer": {{ .Values.kea.dhcp4.renewtimer }},
@@ -80,7 +81,8 @@ data:
             },
             "interfaces-config": {
                 "interfaces": [ "INTERFACE" ],
-                "dhcp-socket-type": "raw"
+                "service-sockets-require-all": true,
+                "dhcp-socket-type": "{{ .Values.kea.dhcp6.dhcpSocketType }}"
             },
             "valid-lifetime": {{ .Values.kea.dhcp6.validlifetime }},
             "renew-timer": {{ .Values.kea.dhcp6.renewtimer }},
