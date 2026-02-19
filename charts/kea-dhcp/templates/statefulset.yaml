@@ -87,6 +87,10 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- if .Values.readinessProbe.enabled }}
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/usr/bin/env", "keactrl", "stop", "-c", "/config/kea/keactrl.conf"]
           readinessProbe:
             exec:
               command:
