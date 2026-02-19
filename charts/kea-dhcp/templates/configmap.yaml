@@ -55,6 +55,9 @@ data:
             {{- if .Values.kea.dhcp4.subnets }}
             "subnet4": {{ .Values.kea.dhcp4.subnets | toJson }},
             {{- end }}
+            {{- if .Values.kea.dhcp4.clientClasses }}
+            "client-classes": {{ .Values.kea.dhcp4.clientClasses | toJson }},
+            {{- end }}
             {{ if gt .Values.replicaCount 1.0 }}
             <?include "ha.json"?>
             {{- end }}
@@ -121,6 +124,9 @@ data:
             {{- end }}
             {{- if .Values.kea.dhcp6.subnets }}
             "subnet6": {{ .Values.kea.dhcp6.subnets | toJson }},
+            {{- end }}
+            {{- if .Values.kea.dhcp6.clientClasses }}
+            "client-classes": {{ .Values.kea.dhcp6.clientClasses | toJson }},
             {{- end }}
             {{ if gt .Values.replicaCount 1.0 }}
             <?include "ha.json"?>
