@@ -36,6 +36,7 @@ kea:
     renewtimer: "1000"
     rebindtimer: "2000"
     loglevel: "DEBUG"
+    debugLevel: 0
     options: []
       # - name: domain-name-servers
       #   data: 192.168.1.2
@@ -67,6 +68,7 @@ kea:
     renewtimer: "1000"
     rebindtimer: "2000"
     loglevel: "DEBUG"
+    debugLevel: 0
     options: []
     reservations: []
       # - ip-address: "2001:db8:1::100"

@@ -67,10 +67,13 @@ data:
             "loggers": [{
                 "name": "kea-dhcp4",
                 "output_options": [
-                    {
+                  {
                     "output": "stdout"
-                    }
+                  }
                 ],
+                {{- if eq .Values.kea.dhcp4.loglevel "DEBUG" }}
+                "debuglevel": {{ .Values.kea.dhcp4.debugLevel }},
+                {{- end }}
                 "severity": "{{ .Values.kea.dhcp4.loglevel }}"
             }]
         }
@@ -137,10 +140,13 @@ data:
             "loggers": [{
                 "name": "kea-dhcp6",
                 "output_options": [
-                    {
+                  {
                     "output": "stdout"
-                    }
+                  }
                 ],
+                {{- if eq .Values.kea.dhcp6.loglevel "DEBUG" }}
+                "debuglevel": {{ .Values.kea.dhcp6.debugLevel }},
+                {{- end }}
                 "severity": "{{ .Values.kea.dhcp6.loglevel }}"
             }]
         }
