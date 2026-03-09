@@ -143,6 +143,9 @@ spec:
             mountPath: /data
           - name: kea-run
             mountPath: /run/kea
+          # Prevent error Unable to use interprocess sync lockfile (No such file or directory): /data/run/kea/logger_lockfile
+          - name: kea-run
+            mountPath: /data/run/kea
           - name: kea-config
             mountPath: /config/kea
         {{ if gt .Values.replicaCount 1.0 }}
